@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance of All Students</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body class="body">
+    <h1 class="h1">Home section</h1>
+    <div class="home-container">
+        <form action="/home/newlisting" method="get">
+            <button class="btn-top">create new students</button>
+        </form>
+
+        <form action="/logout" method="post">
+            <button class="btnn">logout</button>
+        </form>
+
+        <form action="/home/alldata" method="get">
+            <button class="btn-top">Each student information</button>
+        </form>
+
+        <h3>List of all students</h3>
+        <form id="attendanceForm" method="POST" action="/home/newlisting/update?_method=put">
+            <% for(let listing of listings){ %>
+                <div class="home-each-data">
+                    <span>
+                        <%= listing.name %>
+                    </span>
+                    <span>
+                        RN:<%=listing.rollno%>
+                    </span>
+                    <input type="checkbox" name="attendances" value="<%= listing._id %>" class="checkbox">
+                </div>
+                <% } %>
+                    <button type="submit" class="btnn">Save Attendance</button>
+        </form>
+    </div>
+</body>
+
+</html>

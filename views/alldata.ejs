@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All data</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <h1>Each student data</h1>
+    <% for(let listing of listings){ %>
+        <form action="/delete/<%=listing._id%>/?_method=DELETE" method="POST">
+            <div class="eachdata">
+                <span>
+                    Name:<%=listing.name%>
+                </span>
+                <span>
+                    Rollno:<%=listing.rollno%>
+                </span>
+                <span>
+                    Attendence:<%=listing.attendence%>
+                </span>
+                <button class="btnn">delete student info</button>
+            </div>
+        </form>
+        <% } %>
+</body>
+
+</html>
